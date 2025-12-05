@@ -7,6 +7,7 @@ from shapely.geometry import Point
 
 from utils.load_data import load_collision_csv, load_nc_geojson
 
+pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
 
 st.title("Neighborhood Collision View")
 

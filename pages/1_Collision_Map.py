@@ -8,6 +8,7 @@ import requests
 
 # import data functions from utils
 from utils.load_data import load_collision_csv, load_nc_geojson
+pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
 
 # Page title
 st.title("Spatial Collision Map")

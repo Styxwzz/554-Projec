@@ -7,6 +7,7 @@ import numpy as np
 import altair as alt
 import warnings
 from utils.load_data import load_schools_csv, load_collision_school_csv
+pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
 
 # 禁用某些警告
 warnings.filterwarnings("ignore", category=RuntimeWarning)
