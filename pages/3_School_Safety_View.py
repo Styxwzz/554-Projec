@@ -13,7 +13,7 @@ pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 # 页面标题
-st.titl("School Safety View")
+st.title("School Safety View")
 
 # ============================================
 # 加载数据
