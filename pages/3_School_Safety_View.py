@@ -402,12 +402,13 @@ view_state_updated = pdk.ViewState(
 
 # 创建更新后的地图（根据选校动态更新）
 deck_display = pdk.Deck(
-    map_style="mapbox://styles/mapbox/light-v9",
+    map_style=pdk.map_styles.LIGHT,
     initial_view_state=view_state_updated,
     layers=layers,
     tooltip={
         "text": "{Name}\ncollision count: {collision_count}",
-    }
+    },
+    api_keys={'mapbox': mapbox_token}
 )
 
 # ============================================
