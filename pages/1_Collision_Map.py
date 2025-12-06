@@ -560,7 +560,7 @@ elif map_mode == "Commute Route":
                     )
 
                     route_deck = pdk.Deck(
-                        map_style="mapbox://styles/mapbox/dark-v9",
+                        map_style=pdk.map_styles.DARK,
                         initial_view_state=route_view,
                         layers=[route_layer, route_collision_layer],
                         tooltip={"text": "Collision points near the commuting route"},
