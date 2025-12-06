@@ -564,6 +564,7 @@ elif map_mode == "Commute Route":
                         initial_view_state=route_view,
                         layers=[route_layer, route_collision_layer],
                         tooltip={"text": "Collision points near the commuting route"},
+                        api_keys={'mapbox': mapbox_token}
                     )
 
                     st.pydeck_chart(route_deck, use_container_width=True)
