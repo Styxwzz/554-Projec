@@ -7,7 +7,7 @@ from shapely.geometry import Point
 
 from utils.load_data import load_collision_csv, load_nc_geojson
 
-pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
+mapbox_token = st.secrets["MAPBOX_TOKEN"]
 
 st.title("Neighborhood Collision View")
 
@@ -208,10 +208,11 @@ if pin_layer is not None:
     layers.append(pin_layer)
 
 deck = pdk.Deck(
-    map_style="mapbox://styles/mapbox/light-v9",
+    map_style=pdk.map_styles.LIGHT,
     initial_view_state=initial_view,
     layers=layers,
     tooltip={"text": f"{name_col}: {{{name_col}}}\nCollisions: {{collision_count}}"},
+    api_keys={'mapbox': mapbox_token}  
 )
 
 # =============================

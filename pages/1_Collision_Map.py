@@ -8,7 +8,7 @@ import requests
 
 # import data functions from utils
 from utils.load_data import load_collision_csv, load_nc_geojson
-pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
+mapbox_token = st.secrets["MAPBOX_TOKEN"]
 
 # Page title
 st.title("Spatial Collision Map")
@@ -304,10 +304,11 @@ if map_mode in ["Dot Map", "Hexagon Map"]:
         map_title = f"Collision Map ({year_title_suffix}) - Cumulative Hexagon Density Map"
 
     deck = pdk.Deck(
-        map_style="mapbox://styles/mapbox/dark-v9",
+        map_style=pdk.map_styles.DARK,
         initial_view_state=initial_view,
         layers=layers,
         tooltip={"text": "{elevationValue}"},
+        api_keys={'mapbox': mapbox_token}  
     )
 
     # ----- Map block -----

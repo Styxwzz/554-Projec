@@ -7,7 +7,7 @@ import numpy as np
 import altair as alt
 import warnings
 from utils.load_data import load_schools_csv, load_collision_school_csv
-pdk.settings.mapbox_api_key = st.secrets["MAPBOX_TOKEN"]
+mapbox_token = st.secrets["MAPBOX_TOKEN"]
 
 # 禁用某些警告
 warnings.filterwarnings("ignore", category=RuntimeWarning)
@@ -371,12 +371,13 @@ initial_view = pdk.ViewState(
     pitch=0,
 )
 deck = pdk.Deck(
-    map_style="mapbox://styles/mapbox/light-v9",
+    map_style=pdk.map_styles.LIGHT,
     initial_view_state=initial_view,
     layers=layers,
     tooltip={
         "text": "{Name}\ncollision count: {collision_count}",
-    }
+    },
+    api_keys={'mapbox': mapbox_token}
 )
 
 # ============================================
